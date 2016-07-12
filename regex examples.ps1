@@ -56,20 +56,16 @@
 1233598 -match "^\d{7}$" ##true - this must be a number 7 digits long
 
 Get-ChildItem "\\SERVER\FILES" -Filter "datareport*.docx" | where {$_.name -match "t\d{2}\.docx$"} ##only returns files like datareport99.docx where there are two digits after the t and before the .docx. Also this must be at the end of the file name
-
 "100" -match "\d[0..100]"
-
-$ip = "^10\.\d{1,3}\.10\.\d{1,3}$"
-"10.100.10.1","10.192.20.1","10.150.10.1","10.100.10.3","10.100.10.4","10.200.10.1" | where {$_ -match $ip}
-## match all IPs 10.X.10.X
-
-"Bob,Imperial road, Imperial palace, Coruscant, CO15 8JH"
-
 "HEllo" -match "(?i)hello"  ### RESULT: TRUE (?i) starts case-insensitive mode
 "HEllo" -match "(?-i)hello" ### RESULT: FALSE (?-i) turns off case-insensitive mode
 
 "Bob,Bob Road,Bob Town,Land of bob" -replace "(?i)^(.*),(.*),(.*),(.*)$", "`$1" ## RESULT: BOB - this defines a pattern of three commas seperating 4 values and returns the first value
 
+
+$ip = "^10\.\d{1,3}\.10\.\d{1,3}$"
+"10.100.10.1","10.192.20.1","10.150.10.1","10.100.10.3","10.100.10.4","10.200.10.1" | where {$_ -match $ip}
+## match all IPs 10.X.10.X
 
 $p = "^\\\\[Cc][Hh][Ii]-\w+\d{2}\\\w+$" ## [Cc] look for upper or lower case C or c
 $unc = "\\chi-FP01\public"
