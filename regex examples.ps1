@@ -51,6 +51,9 @@
 "10 5.6.89" -match "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" ##false, although . normally means one character we have escaped these . with \
 "10.5.6. 89" -match "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" ##false
 
+0 -match "^[1-9]$|^[1-4][0-9]$" ## RESULT = FALSe, because the value is less than 1-9, OR it is not 10-49
+21 -match "^[1-9]$|^[1-4][0-9]$" ## RESULT = TRUE, because the value is between 1 - 9 OR it is between 10 - 49
+
 "DOMAIN\USERNAME" -match "\w+\\\w+" ##true. A word, a slash, a word
 "\\COMPUTER\UNCSHARE" -match "\\\\\w+\\\w+" ##true. two slashes - each one escaped by another slash so \\ \\
 1233598 -match "^\d{7}$" ##true - this must be a number 7 digits long
