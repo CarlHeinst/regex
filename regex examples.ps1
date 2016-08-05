@@ -103,3 +103,6 @@ $tickets = Get-ZDTickets -startdate ((get-date).AddDays(-4)) -normal -high -urge
 [regex]$match = "[Ii][Nn][Cc]\d{12}"
 $match.matches($tickets.subject)
 $tickets | where {$_.subject -match $match} | select id,subject,@{n='INC';e={$matches.values}}
+
+$grabs = "123456789P","CCCC123456789C","UUU123456789U","123456789Z","123456789U","123456789u"
+$grabs -match "^\w{9}[Tt|Dd|Uu]" #Matches the 10th character as T, D or U
