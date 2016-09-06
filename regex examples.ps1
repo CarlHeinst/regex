@@ -108,7 +108,16 @@ $grabs = "123456789P","CCCC123456789C","UUU123456789U","123456789Z","123456789U"
 $grabs -match "^\w{9}[Tt|Dd|Uu]" #Matches the 10th character as T, D or U
 
 
-$gioserv = "server12345.gio.com"
+$gioserv = "server12345.gioserv.com"
+if ($gioserv -match "\.")
+{
 [regex]$firstword = "\d+(?=\.)" ## Match and return any number, until you hit a . character
 $firstword.Match($gioserv)
 $firstword.Match($gioserv).Value
+}
+else
+{
+[regex]$firstword = "\d+" ## Match and return any number, until you hit a . character
+$firstword.Match($gioserv)
+$firstword.Match($gioserv).Value
+}
