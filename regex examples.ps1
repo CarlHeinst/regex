@@ -121,3 +121,13 @@ else
 $firstword.Match($gioserv)
 $firstword.Match($gioserv).Value
 }
+
+
+$crap = "Server		Address		Telephone
+Server1 works
+Server2 works
+Server3 doesn't work"
+$crap.Split("`n") |  where {$_ -match "^(?!.*(.*doesn't\swork.*))(^Server.*)"}
+## "^(?!.*(.*doesn't\swork.*))(^Server.*)"
+## ^(?!.*(.*doesn't\swork.*)) -- Start at the begining of the string and LOOKAHEAD to make sure it DOESN'T MATCH .*doesn't\swork.*
+## (^Server.*) Make sure the match DOES start with the word Server
