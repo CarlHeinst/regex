@@ -45,11 +45,18 @@
 "10.10.10.1" -match "\d.\d.\d.\d" ##false - because it's not One digit.onedigit - it's many digits
 "100.100.1.1" -match "\d\d\d.\d\d\d.\d.\d" ## true because it's three digits, three digits and then one and one digit
 
+#### Networking
+
 "10.5.6.89" -match "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" ##true 
 "10.5.6.89" -match "^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$" ##true 
 "10.5.6.8900" -match "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$" ##false, because 8900 is more than 4 characters
 "10 5.6.89" -match "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" ##false, although . normally means one character we have escaped these . with \
 "10.5.6. 89" -match "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" ##false
+
+#### Networking Evolution:
+
+"10.5.6.89" -match "(\d{1,3}\.){3}(\d{1,3})" ## true because you are saying looking for 3 lots of numbers up to 3 digits long with a . on the end and then one without a .
+"B8:08:CF:33:C5:82" -match "(([0-9A-Fa-f]{2})(.*)){4}" ## true, match a Hexadecimal up to two characters long, seperated by anything and there must be 4 of them!
 
 0 -match "^[1-9]$|^[1-4][0-9]$" ## RESULT = FALSe, because the value is less than 1-9, OR it is not 10-49
 21 -match "^[1-9]$|^[1-4][0-9]$" ## RESULT = TRUE, because the value is between 1 - 9 OR it is between 10 - 49
