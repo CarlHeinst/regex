@@ -138,3 +138,8 @@ $crap.Split("`n") |  where {$_ -match "^(?!.*(.*doesn't\swork.*))(^Server.*)"}
 ## "^(?!.*(.*doesn't\swork.*))(^Server.*)"
 ## ^(?!.*(.*doesn't\swork.*)) -- Start at the begining of the string and LOOKAHEAD to make sure it DOESN'T MATCH .*doesn't\swork.*
 ## (^Server.*) Make sure the match DOES start with the word Server
+
+[Regex]::Match("bastardo010999.crap.com", "(?<=010).*?(?=\.)").Value
+## Returns value of 999.
+##Searches the string for 010 - and returns all charcters after
+## then searches ahead for next instance of . and returns only up to that point/
