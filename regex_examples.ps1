@@ -143,3 +143,7 @@ $crap.Split("`n") |  where {$_ -match "^(?!.*(.*doesn't\swork.*))(^Server.*)"}
 ## Returns value of 999.
 ##Searches the string for 010 - and returns all charcters after
 ## then searches ahead for next instance of . and returns only up to that point/
+
+
+$data = "UKS13456", "UKSE565646", "UKS564", "UKSE89793"
+$data -replace "[s|se][\d+]","RI$2"
