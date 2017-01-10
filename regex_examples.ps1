@@ -146,4 +146,4 @@ $crap.Split("`n") |  where {$_ -match "^(?!.*(.*doesn't\swork.*))(^Server.*)"}
 
 
 $data = "UKS13456", "UKSE565646", "UKS564", "UKSE89793"
-$data -replace "[s|se][\d+]","RI$2"
+$data -replace "(s|se)([\d+])","RI$2"
