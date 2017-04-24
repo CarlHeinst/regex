@@ -43,8 +43,8 @@ cat dirfile.txt | perl -ne 'print split(/\s/,$1);'
 
 ## Convert space seperated to CSV
 
-cat dirfile.txt | perl -ne 'print join(",", split(/\s+/,$_)) . "\n";'
+ls -l / | perl -ne 'print join(",", split(/\s+/,$_)) . "\n";'
 
 ## Convert space seperated to TSV
 
-cat dirfile.txt | perl -ne 'print join("\t", split(/\s+/,$_)) . "\n";'
+ls -l / | perl -ne 'print join("\t", split(/\s+/,$_)) . "\n";'
